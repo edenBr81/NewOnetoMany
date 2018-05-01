@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<form th:fragment="addArtist" action="/saveartist" th:object="${anArtist}" method ="post">
+ <input type="hidden"  th:field="*{id}">
+
+
+    <div class="form-group">
+        <label for="fullname">Artist's Full Name</label>
+
+        <span th:if="${#fields.hasErrors('fullName')}" th:errors="*{fullName}" class="text-danger"></span>
+        <input type="text"  class="form-control" th:field="*{fullName}">
+
+    </div>
+
+<div class="float-right">
+    <button class="btn btn-default">Save</button>
+
+</div>
+</form>
+
+</body>
+</html>
